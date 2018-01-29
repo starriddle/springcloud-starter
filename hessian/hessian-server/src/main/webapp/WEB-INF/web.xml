@@ -36,8 +36,17 @@
         <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
         <!-- 配置接口的具体实现类 -->
         <init-param>
-            <param-name>service-class</param-name>
+            <!-- service-class 也可以写为 home-class -->
+            <param-name>home-class</param-name>
+            <!-- 服务器对接口的实现，供客户端调用 -->
             <param-value>com.cyl.demo.hessian.serviceimpl.FileUploadServiceImpl</param-value>
+        </init-param>
+        <!-- 提供给客户端调用的接口，这里的home-api配置不是必须的，可以不配置 -->
+        <init-param>
+            <!-- home-api 也可以写为api-class -->
+            <param-name>home-api</param-name>
+            <!-- 接口 -->
+            <param-value>com.cyl.demo.hessian.service.FileUploadService</param-value>
         </init-param>
     </servlet>
     <!-- 映射 upload servlet 的URL地址 -->

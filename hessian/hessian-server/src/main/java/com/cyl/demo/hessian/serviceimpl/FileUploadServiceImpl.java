@@ -8,6 +8,12 @@ import java.io.InputStream;
 
 import com.cyl.demo.hessian.service.FileUploadService;
 
+/**
+ * FileUploadService文件上传接口的具体实现类
+ *
+ * @author CYL
+ * @date 2018-01-29
+ */
 public class FileUploadServiceImpl implements FileUploadService {
 
     @Override
