@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * 实现一个简单的web应用
+ *
  * 接受 GET 类型请求 /hello，
  * 转发到 /WEB-INF/jsp/hello.jsp 页面，
  * 页面显示系统当前时间。
