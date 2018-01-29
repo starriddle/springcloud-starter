@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-	version="2.5">
-  <display-name>demo-hessian-server</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <servlet>
-  	<servlet-name>hello</servlet-name>
-  	<servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
-  	<init-param>
-  	  <param-name>service-class</param-name>
-  	  <param-value>com.cyl.demo.hessian.serviceimpl.HelloServiceImpl</param-value>
-  	</init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>upload</servlet-name>
-  	<servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
-  	<init-param>
-  	  <param-name>service-class</param-name>
-  	  <param-value>com.cyl.demo.hessian.serviceimpl.FileUploadServiceImpl</param-value>
-  	</init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>upload</servlet-name>
-    <url-pattern>/upload</url-pattern>
-  </servlet-mapping>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>demo-hessian-server</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- 配置 hello servlet -->
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+        <!-- 配置接口的具体实现类 -->
+        <init-param>
+            <param-name>service-class</param-name>
+            <param-value>com.cyl.demo.hessian.serviceimpl.HelloServiceImpl</param-value>
+        </init-param>
+    </servlet>
+    <!-- 映射 hello servlet 的URL地址 -->
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <!-- 配置 upload servlet -->
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+        <!-- 配置接口的具体实现类 -->
+        <init-param>
+            <param-name>service-class</param-name>
+            <param-value>com.cyl.demo.hessian.serviceimpl.FileUploadServiceImpl</param-value>
+        </init-param>
+    </servlet>
+    <!-- 映射 upload servlet 的URL地址 -->
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
 </web-app>
