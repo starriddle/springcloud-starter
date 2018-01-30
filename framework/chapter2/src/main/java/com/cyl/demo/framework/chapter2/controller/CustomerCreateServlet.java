@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 处理客户管理相关请求
+ * 创建客户
  *
  * @author CYL
  * @date 2018-01-29
  */
-@WebServlet("/customer")
-public class CustomerController extends HttpServlet{
+@WebServlet("/customer_create")
+public class CustomerCreateServlet extends HttpServlet{
 
     /**
      * 进入 创建客户 界面
@@ -25,7 +25,7 @@ public class CustomerController extends HttpServlet{
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO
+        //TODO
     }
 
     /**
@@ -37,6 +37,6 @@ public class CustomerController extends HttpServlet{
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO
+        //TODO
     }
 }

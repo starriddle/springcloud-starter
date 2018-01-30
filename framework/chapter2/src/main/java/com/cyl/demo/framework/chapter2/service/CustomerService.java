@@ -14,11 +14,10 @@ import java.util.Map;
 public interface CustomerService {
 
     /**
-     * 通过关键字查找匹配客户
-     * @param keyword 查找的关键字
-     * @return 返回匹配关键字的所有客户的链表
+     * 查找所有客户
+     * @return 返回所有客户的链表
      */
-    public List<Customer> getCustomerList(String keyword);
+    public List<Customer> getCustomerList();
 
     /**
      * 通过ID查找客户
