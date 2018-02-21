@@ -1,7 +1,9 @@
 package com.cyl.demo.framework.chapter2.controller;
 
+import com.cyl.demo.framework.chapter2.model.Customer;
 import com.cyl.demo.framework.chapter2.service.CustomerService;
 import com.cyl.demo.framework.chapter2.service.impl.CustomerServiceImpl_4;
+import com.cyl.demo.framework.chapter2.util.CastUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * 创建客户
+ * 删除客户
  *
  * @author CYL
- * @date 2018-01-29
+ * @date 2018-02-21
  */
-@WebServlet("/customer_create")
-public class CustomerCreateServlet extends HttpServlet{
+@WebServlet("/customer_delete")
+public class CustomerDeleteServlet extends HttpServlet{
 
     private CustomerService customerService;
 
@@ -30,7 +30,8 @@ public class CustomerCreateServlet extends HttpServlet{
     }
 
     /**
-     * 进入 创建客户 界面
+     * 进入 删除客户 界面
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -38,11 +39,16 @@ public class CustomerCreateServlet extends HttpServlet{
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/view/customer_create.jsp").forward(req, resp);
+        long id = CastUtil.castLong(req.getParameter("id"));
+        System.out.println("id = " + id);
+        Customer customer = customerService.getCustomerById(id);
+        req.setAttribute("customer", customer);
+        req.getRequestDispatcher("/WEB-INF/view/customer_delete.jsp").forward(req, resp);
     }
 
     /**
-     * 处理 创建客户 请求
+     * 处理 删除客户 请求
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -50,21 +56,12 @@ public class CustomerCreateServlet extends HttpServlet{
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name").trim();
-        String contact = req.getParameter("contact").trim();
-        String telephone = req.getParameter("telephone").trim();
-        String email = req.getParameter("email").trim();
-        String remark = req.getParameter("remark").trim();
-
-        Map<String, Object> fieldMap = new HashMap<String, Object>();
-        fieldMap.put("name", name);
-        fieldMap.put("contact", contact);
-        fieldMap.put("telephone", telephone);
-        fieldMap.put("email", email);
-        fieldMap.put("remark", remark);
-
-        boolean result = customerService.insertCustomer(fieldMap);
-        req.setAttribute("create_result", result);
-        req.getRequestDispatcher("/WEB-INF/view/customer_create.jsp").forward(req, resp);
+        long id = CastUtil.castLong(req.getParameter("id"));
+        Customer customer = customerService.getCustomerById(id);
+        boolean result = customerService.deleteCustomerById(id);
+        req.setAttribute("customer", customer);
+        req.setAttribute("delete_result", result);
+        req.getRequestDispatcher("/WEB-INF/view/customer_delete.jsp").forward(req, resp);
     }
+
 }

@@ -21,7 +21,7 @@ public class Customer {
     /**
      * 联系人
      */
-    private String contract;
+    private String contact;
 
     /**
      * 电话号码
@@ -54,12 +54,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getContract() {
-        return contract;
+    public String getContact() {
+        return contact;
     }
 
-    public void setContract(String contract) {
-        this.contract = contract;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public String getTelephone() {

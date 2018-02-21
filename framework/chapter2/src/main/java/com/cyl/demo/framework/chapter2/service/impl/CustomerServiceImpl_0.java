@@ -56,7 +56,7 @@ public class CustomerServiceImpl_0 implements CustomerService {
                 Customer customer = new Customer();
                 customer.setId(rs.getLong("id"));
                 customer.setName(rs.getString("name"));
-                customer.setContract(rs.getString("contact"));
+                customer.setContact(rs.getString("contact"));
                 customer.setTelephone(rs.getString("telephone"));
                 customer.setEmail(rs.getString("email"));
                 customer.setRemark(rs.getString("remark"));

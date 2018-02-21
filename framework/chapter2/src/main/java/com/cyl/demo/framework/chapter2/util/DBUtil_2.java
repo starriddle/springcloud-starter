@@ -190,13 +190,13 @@ public class DBUtil_2 {
      * @return
      */
     public static int executeUpdate(String sql, Object... params){
-        int rows;
+        int rows = 0;
         Connection connection = getConnection();
         try {
             rows = QUERY_RUNNER.update(connection, sql, params);
         } catch (SQLException e) {
             LOGGER.error("execute update failure", e);
-            throw new RuntimeException(e);
+            // throw new RuntimeException(e);
         } finally {
             closeConnection();
         }
