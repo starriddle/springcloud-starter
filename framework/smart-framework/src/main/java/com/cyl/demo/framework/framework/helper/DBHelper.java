@@ -1,5 +1,6 @@
-package com.cyl.demo.framework.framework.util;
+package com.cyl.demo.framework.framework.helper;
 
+import com.cyl.demo.framework.framework.util.CollectionUtil;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -17,65 +18,34 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * 数据库操作工具类
- * （移植自chapter2）
+ * （移植自chapter2 DBUtil）
  *
- * 2. 使用连接池技术，重用Connection，避免重复创建关闭Connection，造成系统资源消耗
- *
- * 1. 使用线程池，确保一个线程只有一个Connection
- *
- * 改造查询方法，直接在方法内获取/关闭Connection，使Connection的创建和关闭对外透明
- *
- * Apache Common 的 dbutils 提供的 QueryRunner可以面向实体进行查询
- * ResultSetHandler —— 接口
- *      BaseResultSetHandler —— 基础实现类
- *      BeanHandler —— Bean对象
- *      BeanListHandler —— Bean List对象
- *      ArrayHandler —— 数组对象 Object[]
- *      MapHandler —— Map对象
- *      ScalarHandler —— 某列的值
- *      AbstractKeyedHandler —— 抽象类，Map
- *          Keyedhandler —— Map对象，需要指定列名
- *          BeanMapHandler —— Bean Map对象
- *      AbstractListHandler —— 抽象类，List
- *          ColumnListHandler —— 某列的值List
- *          MapListHandler —— Map 的List
- *          ArrayListHandler —— ArrayList
+ * 从ConfigHelper类中获取 数据库连接 参数
  *
  * @author CYL
- * @date 2018-02-18
+ * @date 2018-02-23
  */
-public class DBUtil {
+public class DBHelper {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DBUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DBHelper.class);
 
     private static final ThreadLocal<Connection> CONNECTION_THREAD_LOCAL;
     private static final QueryRunner QUERY_RUNNER;
     private static final BasicDataSource DATA_SOURCE;
 
-    private static final String DRIVER;
-    private static final String URL;
-    private static final String USERNAME;
-    private static final String PASSWORD;
-
     static {
-        Properties properties = PropsUtil.loadProps("config.properties");
-        DRIVER = properties.getProperty("jdbc.driver");
-        URL = properties.getProperty("jdbc.url");
-        USERNAME = properties.getProperty("jdbc.username");
-        PASSWORD = properties.getProperty("jdbc.password");
 
         CONNECTION_THREAD_LOCAL = new ThreadLocal<Connection>();
         QUERY_RUNNER = new QueryRunner();
 
         DATA_SOURCE = new BasicDataSource();
-        DATA_SOURCE.setDriverClassName(DRIVER);
-        DATA_SOURCE.setUrl(URL);
-        DATA_SOURCE.setUsername(USERNAME);
-        DATA_SOURCE.setPassword(PASSWORD);
+        DATA_SOURCE.setDriverClassName(ConfigHelper.getJdbcDriver());
+        DATA_SOURCE.setUrl(ConfigHelper.getJdbcUrl());
+        DATA_SOURCE.setUsername(ConfigHelper.getJdbcUsername());
+        DATA_SOURCE.setPassword(ConfigHelper.getJdbcPassword());
     }
 
     /**

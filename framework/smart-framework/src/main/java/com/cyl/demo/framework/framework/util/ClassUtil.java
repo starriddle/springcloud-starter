@@ -34,6 +34,15 @@ public final class ClassUtil {
     }
 
     /**
+     * 加载类，加载时执行类的静态代码块（初始化）
+     * @param className 类名
+     * @return
+     */
+    public static Class<?> loadClass(String className) {
+        return loadClass(className, true);
+    }
+
+    /**
      * 加载类，可自定义加载时是否执行类的静态代码块（初始化）
      *
      * @param className 类名
@@ -126,4 +135,5 @@ public final class ClassUtil {
         Class<?> cls = loadClass(className,false);
         classSet.add(cls);
     }
+
 }
