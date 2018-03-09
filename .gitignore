@@ -9,9 +9,7 @@ bin/
 *.ipr
 
 ### eclipse ###
-Servers/
 .settings/
-.metadata/
 .project
 .classpath
 
@@ -27,3 +25,9 @@ nbdist/
 .apt_generated
 .factorypath
 .springBeans
+
+### eclipse workspace ###
+Servers/
+.metadata/
+.recommenders
+RemoteSystemsTempFiles/
