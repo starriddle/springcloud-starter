@@ -2,18 +2,14 @@
 
 Micro Server on Spring Cloud
 
-## Eureka Server
+## eureka-server
 
 服务注册中心
 
-## Config Server
+## config-server
 
 配置中心
 
-## Provider Server
+## hello-server
 
-微服务 服务提供者
-
-## Comsumer Server
-
-微服务 服务消费者
+微服务 demo：hello-server
