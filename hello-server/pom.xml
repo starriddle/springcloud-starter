@@ -28,6 +28,14 @@
     <dependencies>
 
         <!--
+         引入 actuator 模块，用于监控系统采集信息
+         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--
          springboot webapp dependencies
          全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC
          -->
