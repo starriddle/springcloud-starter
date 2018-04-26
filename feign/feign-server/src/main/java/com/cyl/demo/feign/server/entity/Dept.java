@@ -1,6 +1,8 @@
 package com.cyl.demo.feign.server.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -9,6 +11,8 @@ import java.time.LocalDate;
  * @date 2018-04-25
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dept {
 
     /**

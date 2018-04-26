@@ -1,6 +1,8 @@
 package com.cyl.demo.feign.server.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -9,6 +11,8 @@ import java.time.LocalDate;
  * @date 2018-04-25
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Emp {
 
     /**
@@ -39,14 +43,4 @@ public class Emp {
      * emp org id
      */
     private long orgId;
-
-    public Emp(long id, String name, int age, LocalDate birthday, String address, long deptId, long orgId) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.birthday = birthday;
-        this.address = address;
-        this.deptId = deptId;
-        this.orgId = orgId;
-    }
 }

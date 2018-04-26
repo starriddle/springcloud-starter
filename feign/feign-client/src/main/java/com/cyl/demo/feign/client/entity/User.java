@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 /**
  * @author CYL
  * @date 2018-04-25
@@ -13,27 +11,35 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Dept {
+public class User {
 
     /**
-     * dept id
+     * emp id
      */
     private long id;
     /**
-     * dept name
+     * emp name
      */
     private String name;
     /**
-     * dept address
+     * emp age
+     */
+    private int age;
+    /**
+     * emp birthday
+     */
+    private String birthday;
+    /**
+     * emp address
      */
     private String address;
     /**
-     * dept org id
+     * emp dept id
+     */
+    private long deptId;
+    /**
+     * emp org id
      */
     private long orgId;
-    /**
-     * dept found day
-     */
-    private LocalDate foundDay;
 
 }

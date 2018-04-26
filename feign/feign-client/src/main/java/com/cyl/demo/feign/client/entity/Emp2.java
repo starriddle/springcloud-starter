@@ -1,12 +1,16 @@
 package com.cyl.demo.feign.client.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author CYL
  * @date 2018-04-25
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Emp2 {
 
     /**
@@ -38,13 +42,4 @@ public class Emp2 {
      */
     private long orgId;
 
-    public Emp2(long id, String name, int age, String birthday, String address, long deptId, long orgId) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.birthday = birthday;
-        this.address = address;
-        this.deptId = deptId;
-        this.orgId = orgId;
-    }
 }

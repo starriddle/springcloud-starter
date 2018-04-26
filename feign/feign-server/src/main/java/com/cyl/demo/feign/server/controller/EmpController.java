@@ -2,7 +2,6 @@ package com.cyl.demo.feign.server.controller;
 
 import com.cyl.demo.feign.server.entity.Dept;
 import com.cyl.demo.feign.server.entity.Emp;
-import com.cyl.demo.feign.server.entity.Emp2;
 import com.cyl.demo.feign.server.entity.Org;
 import com.cyl.demo.feign.server.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +23,15 @@ public class EmpController {
     @Autowired
     private EmpService service;
 
-    @GetMapping("/index")
-    String index(){
-        return "Hello Emp —— Feign Server";
-    }
-
     @PostMapping("/create")
-    boolean create(Emp emp){
+    boolean create(@RequestBody Emp emp){
         boolean ret = service.create(emp);
         System.out.println("return: " + ret);
         return ret;
     }
+
     @PostMapping("/update")
-    boolean update(Emp emp){
+    Emp update(Emp emp){
         return service.update(emp);
     }
 
@@ -45,13 +40,6 @@ public class EmpController {
         Emp ret = service.getById(id);
         System.out.println("return: " + ret.toString());
         return ret;
-    }
-
-    @GetMapping("/getEmp2ById")
-    Emp2 getEmp2ById(long id){
-        Emp2 emp2 = service.getEmp2ById(id);
-        System.out.println("return: " + emp2.toString());
-        return emp2;
     }
 
     @GetMapping("/getByDept")
