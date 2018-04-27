@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 /**
  * @author CYL
  * @date 2018-04-25
@@ -31,9 +29,5 @@ public class Dept {
      * dept org id
      */
     private long orgId;
-    /**
-     * dept found day
-     */
-    private LocalDate foundDay;
 
 }

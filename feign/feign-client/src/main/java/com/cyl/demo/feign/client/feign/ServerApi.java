@@ -8,7 +8,7 @@ import feign.RequestLine;
  * 使用application/json、application/xml等content-type，
  * 可以在POST中使用Body参数
  * 使用默认的设置，即http协议默认的application/x-www-form-urlencoded时，
- * 不可使用Body参数，一律使用Form参数
+ * 不可使用Body参数，一律需要@Param注释
  *
  * @author CYL
  * @date 2018-04-25
