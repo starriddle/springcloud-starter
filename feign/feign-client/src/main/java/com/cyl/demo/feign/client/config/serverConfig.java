@@ -4,8 +4,8 @@ import com.cyl.demo.feign.client.feign.EmpApi;
 import com.cyl.demo.feign.client.feign.ServerApi;
 import com.cyl.demo.feign.client.feign.TestApi;
 import com.cyl.demo.feign.client.feign.UserApi;
-import com.cyl.demo.feign.client.util.MyDecoder;
-import com.cyl.demo.feign.client.util.MyEncoder;
+import com.cyl.demo.feign.client.util.MyJacksonDecoder;
+import com.cyl.demo.feign.client.util.MyJacksonEncoder;
 import feign.Feign;
 import feign.Request;
 import feign.Retryer;
@@ -31,8 +31,12 @@ public class serverConfig {
     @Bean
     public TestApi registTestApi() {
         return Feign.builder()
-                .encoder(new MyEncoder())
-                .decoder(new MyDecoder())
+                .encoder(new MyJacksonEncoder()) // 使用自定义，继承自Feign封装的Jackson
+                .decoder(new MyJacksonDecoder())
+//                .encoder(new GsonEncoder()) // 使用Gson，但springMVC首选jackson，需要注意
+//                .decoder(new GsonDecoder())
+//                .encoder(new JacksonEncoder()) // 使用jackson，与springMVC保持一致
+//                .decoder(new JacksonDecoder())
                 .options(new Request.Options(1000, 3500))
                 .retryer(new Retryer.Default(5000, 5000, 3))
                 .target(TestApi.class, "http://localhost:9001");

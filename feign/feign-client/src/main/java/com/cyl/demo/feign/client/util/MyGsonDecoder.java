@@ -15,19 +15,19 @@ import java.util.List;
 
 import static feign.Util.ensureClosed;
 
-public class MyDecoder extends GsonDecoder {
+public class MyGsonDecoder extends GsonDecoder {
 
     private static List<Type> types = Arrays.asList(String.class, LocalDate.class);
 
-    public MyDecoder(Iterable<TypeAdapter<?>> adapters) {
+    public MyGsonDecoder(Iterable<TypeAdapter<?>> adapters) {
         super(adapters);
     }
 
-    public MyDecoder() {
+    public MyGsonDecoder() {
         super();
     }
 
-    public MyDecoder(Gson gson) {
+    public MyGsonDecoder(Gson gson) {
         super(gson);
     }
 

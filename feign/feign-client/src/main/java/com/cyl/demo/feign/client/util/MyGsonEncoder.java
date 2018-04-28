@@ -13,17 +13,17 @@ import java.time.LocalDate;
  * @date 2018-04-27
  */
 
-public class MyEncoder extends GsonEncoder {
+public class MyGsonEncoder extends GsonEncoder {
 
-    public MyEncoder(Iterable<TypeAdapter<?>> adapters) {
+    public MyGsonEncoder(Iterable<TypeAdapter<?>> adapters) {
         super(adapters);
     }
 
-    public MyEncoder() {
+    public MyGsonEncoder() {
         super();
     }
 
-    public MyEncoder(Gson gson) {
+    public MyGsonEncoder(Gson gson) {
         super(gson);
     }
 
