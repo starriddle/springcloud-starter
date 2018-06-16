@@ -1,9 +1,12 @@
 package com.cyl.demo.feign.client.feign;
 
+import com.cyl.demo.feign.client.entity.Dept;
 import com.cyl.demo.feign.client.entity.User;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+
+import java.util.List;
 
 /**
  *
@@ -50,5 +53,14 @@ public interface UserApi {
      */
     @RequestLine("GET /user/getById?id={id}")
     User getById(@Param("id") long id);
+
+    @RequestLine("GET /user/getNameById?id={id}")
+    String getNameById(@Param("id") long id);
+
+    @RequestLine("GET /user/getByDept")
+    List<User> getByDept(@Param("dept") Dept dept);
+
+    @RequestLine("GET /user/getNamesByDept")
+    List<String> getNamesByDept(@Param("dept") Dept dept);
 
 }
