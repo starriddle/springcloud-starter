@@ -8,23 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>hessian-client</artifactId>
+    <artifactId>hessian-api</artifactId>
     <packaging>jar</packaging>
 
-    <name>Demo::Hessian::Client</name>
-    <description>Demo of Hessian Client</description>
+    <name>Demo::Hessian::Api</name>
+    <description>Hessian Api</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.caucho</groupId>
-            <artifactId>hessian</artifactId>
-            <version>4.0.38</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cyl.demo.hessian</groupId>
-            <artifactId>hessian-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

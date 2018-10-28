@@ -19,6 +19,7 @@
     <modules>
         <module>feign</module>
         <module>framework</module>
+        <module>hessian</module>
         <module>spring-boot</module>
         <module>spring-cloud</module>
     </modules>

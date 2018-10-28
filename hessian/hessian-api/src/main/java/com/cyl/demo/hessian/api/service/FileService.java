@@ -1,14 +1,14 @@
-package com.cyl.demo.hessian.service;
+package com.cyl.demo.hessian.api.service;
 
 import java.io.InputStream;
 
 /**
- * 文件上传服务接口
+ * 文件 服务
  *
  * @author CYL
- * @date 2018-01-29
+ * @date 2018-10-27
  */
-public interface FileUploadService {
+public interface FileService {
 
     /**
      * 上传文件
@@ -16,6 +16,6 @@ public interface FileUploadService {
      * @param fileName 上传的文件名
      * @param inputStream 上传的文件的输入流
      */
-    public void upload(String fileName, InputStream inputStream);
+    void upload(String fileName, InputStream inputStream);
 
 }
