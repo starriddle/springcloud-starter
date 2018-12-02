@@ -15,15 +15,19 @@
     <description>Demo of Hessian Client</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.caucho</groupId>
-            <artifactId>hessian</artifactId>
-            <version>4.0.38</version>
-        </dependency>
+        <!--
+            1. 将server的hessian接口及所需实体类打包，作为client的依赖包；
+            2. 将server的hessian接口及所需实体类文件，复制到client下相同路径
+         -->
         <dependency>
             <groupId>com.cyl.demo.hessian</groupId>
             <artifactId>hessian-api</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.38</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
