@@ -10,7 +10,6 @@
     <name>Demo</name>
 
     <modules>
-        <module>feign</module>
         <module>hessian</module>
         <module>spring-boot</module>
         <module>spring-cloud</module>

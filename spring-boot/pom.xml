@@ -16,8 +16,9 @@
     <name>Demo::SpringBoot</name>
 
     <modules>
-        <module>springboot</module>
-        <module>springboot2</module>
+        <module>boot-hello</module>
+        <module>feign-server</module>
+        <module>feign-client</module>
     </modules>
 
     <properties>
