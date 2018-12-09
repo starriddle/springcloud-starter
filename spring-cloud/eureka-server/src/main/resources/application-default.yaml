@@ -1,5 +1,5 @@
 server:
-  port: 9001 # 应用端口号
+  port: 12001 # 应用端口号
 
 spring:
   application:

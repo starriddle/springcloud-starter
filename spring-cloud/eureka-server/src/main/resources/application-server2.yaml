@@ -1,5 +1,5 @@
 server:
-  port: 9002 # 应用端口号
+  port: 12002 # 应用端口号
 
 spring:
   application:
@@ -12,4 +12,4 @@ eureka:
     register-with-eureka: true   # 1. 默认为true，客户端向注册中心注册本应用，注册中心本身不需要向自己注册，但在集群中可向其他注册中心注册自己
     fetch-registry: true         # 2. 默认为true，客户端向注册中心检索服务，注册中心本身职责就是维护服务实例，不需要去检索，但在集群中可向其他注册中心检索
     serviceUrl:                   # 指定服务注册中心URL
-      defaultZone: http://localhost:9003/eureka/
+      defaultZone: http://localhost:12003/eureka/

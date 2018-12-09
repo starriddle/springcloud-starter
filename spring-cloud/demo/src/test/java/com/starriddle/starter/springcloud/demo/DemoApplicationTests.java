@@ -1,4 +1,4 @@
-package com.cyl.springcloud.helloworld;
+package com.starriddle.starter.springcloud.demo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +12,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.cyl.springcloud.helloworld.controller.HelloController;
+import com.starriddle.starter.springcloud.demo.controller.HelloController;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HelloWorldApplication.class)
+@SpringBootTest(classes = DemoApplication.class)
 @WebAppConfiguration
-public class HelloWorldApplicationTests {
+public class DemoApplicationTests {
 
     private MockMvc mvc;
 

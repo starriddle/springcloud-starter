@@ -1,4 +1,4 @@
-package com.cyl.springcloud.helloworld.controller;
+package com.starriddle.starter.springcloud.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

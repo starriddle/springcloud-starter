@@ -1,9 +1,9 @@
 server:
-  port: 9021 # 设置WebApp端口
+  port: 12021 # 设置WebApp端口
 
 spring:
   application:
-    name: hello-world # 设置WebApp名称，在spring cloud会被注册为服务名
+    name: demo # 设置WebApp名称，在spring cloud会被注册为服务名
 #  profiles:
 #    active: server2
 
@@ -16,8 +16,8 @@ eureka:
   client:
     registry-fetch-interval-seconds: 60 #间隔多久去拉取服务注册信息，默认为30秒
     service-url:
-      defaultZone: http://localhost:9001/eureka/ # 单个注册中心配置
-#      defaultZone: http://localhost:9002/eureka/,http://localhost:9003/eureka/ # 注册中心集群配置
+      defaultZone: http://localhost:12001/eureka/ # 单个注册中心配置
+#      defaultZone: http://localhost:12002/eureka/,http://localhost:12003/eureka/ # 注册中心集群配置
 
 management:
   endpoints:
@@ -25,7 +25,7 @@ management:
       exposure:
         include: "*" # 设置通过http可访问的actuator信息，springcloud2.0后默认只有info+health
   server:
-    port: 9019 # 设置访问actuator信息的端口，默认与app的端口一致
+    port: 12020 # 设置访问actuator信息的端口，默认与app的端口一致
 #    address: 127.0.0.1 # 设置可以访问actuator信息的访客地址，此处设置仅限本地访问，默认无限制
 
 info: # 可自定义actuator/info下的信息，默认没有内置信息
@@ -43,10 +43,10 @@ info: # 可自定义actuator/info下的信息，默认没有内置信息
  spring:
    profiles: server2
  server:
-   port: 9012 # 针对server2配置：设置WebApp端口，覆盖通用设置
+   port: 12022 # 针对server2配置：设置WebApp端口，覆盖通用设置
 ---
 ### server3环境配置 ###
  spring:
    profiles: server3
  server:
-   port: 9013 # 针对server3配置：设置WebApp端口，覆盖通用设置
+   port: 12023 # 针对server3配置：设置WebApp端口，覆盖通用设置

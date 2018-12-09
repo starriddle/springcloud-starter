@@ -1,4 +1,4 @@
-package com.cyl.springcloud.configserver;
+package com.starriddle.starter.springcloud.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
