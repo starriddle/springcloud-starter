@@ -9,3 +9,7 @@
 - 20181201 分离 framework 模块
 
     分离 framework 模块，独立成项
+
+20181209 迁移 spring-cloud 模块
+
+分离 spring-cloud 模块，至 springcloud 分支，以便迁移至 SpringCloud-Starter 项目
