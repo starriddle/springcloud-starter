@@ -3,14 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.cyl.demo</groupId>
-        <artifactId>demo</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
     <groupId>com.cyl.demo.springcloud</groupId>
     <artifactId>spring-cloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Demo::SpringCloud</name>
@@ -18,7 +13,7 @@
     <modules>
         <module>config-server</module>
         <module>eureka-server</module>
-        <module>cloud-hello</module>
+        <module>demo</module>
     </modules>
 
     <properties>
