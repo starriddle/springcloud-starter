@@ -1,0 +1,4 @@
+message:
+  profile: profile from global eureka
+  both: both from global eureka
+  custom: custom from global eureka

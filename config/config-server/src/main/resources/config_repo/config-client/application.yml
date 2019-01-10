@@ -1,0 +1,4 @@
+message:
+  system: default from system
+  both: both from system
+  custom: custom from system

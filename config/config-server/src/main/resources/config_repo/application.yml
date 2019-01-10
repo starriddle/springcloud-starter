@@ -1,0 +1,6 @@
+message:
+  global: general from global
+  system: default from global
+  profile: profile from global
+  both: both from global
+  custom: custom from global

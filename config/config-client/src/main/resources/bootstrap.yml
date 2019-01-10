@@ -1,0 +1,43 @@
+server:
+  port: 12022
+
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: eureka
+  cloud:
+    # 配置中心的配置需要配置在bootstrap中，因为读取配置顺序：bootstrap->远程配置中心配置->application，后者覆盖前者
+    config:
+      # 指定client拉取配置的版本，可以为git label, branch name or commit id，
+      # 默认由server配置确定(spring.cloud.config.server.git.default-label)
+      # 如server使用本地配置模式，则该值无意义
+#      label: master
+      # 直接设置config server URL
+      uri: http://localhost:12021
+      # name 默认为 spring.application.name
+      # 对应config server rest接口/{name}/{profile}/{label}中的name
+      # config server 配置文件可通过{application}变量获取该值
+#      name: ${spring.application.name}
+      # 环境配置名称，取值顺序：自定义->${spring.profiles.active}->default
+#      profile: eureka
+      # 如果访问配置中心失败，是否停止启动服务
+      # client 设置版本，server 设置默认版本，git 存在master分支——如3个条件全都不满足，也会导致启动失败
+      fail-fast: true
+
+---
+spring:
+  profiles: eureka # 使用注册中心，需要添加注册中心客户端依赖
+  cloud:
+    config:
+      # 通过注册中心获取config server URL
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12011/eureka/

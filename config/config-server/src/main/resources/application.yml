@@ -4,18 +4,28 @@ server:
 spring:
   application:
     name: config-server
+  profiles:
+    active: eureka
   cloud:
     config:
-      label: dev
       server:
         git:
-          uri: https://github.com/starriddle/springcloud-starter/
-          searchPaths: 'config_repo/{application}'
-#          username: username # \u79C1\u6709\u4ED3\u5E93\u9700\u8981\u7528\u6237\u540D\u5BC6\u7801
+          # 指定配置文件所在远程git库的url地址
+          uri: https://github.com/starriddle/repository.git
+          # 定位git库的子目录，指定搜索路径，如果有多个路径则使用,分隔，后者覆盖前者，默认为根目录
+          searchPaths: SpringCloudConfig,SpringCloudConfig/{application}
+          # 对于使用git,svn做为后端配置，从远程库获取配置文件，需要存储到本地文件。
+          # 默认存储在系统临时目录下，目录名的前缀为config-repo-，如在linux下时可能是/tmp/config-repo-。
+          # 因为系统临时目录下的内容有可能被误删，所有为了保险，最好修改存储目录。
+          basedir: /tmp/config_repo
+          # 强制从远程库中更新本地库。
+          # 配置中心通过git从远程库读取数据时，有时本地拷贝被污染，导致配置中心无法从远程库更新本地配置。
+          force-pull: true
+          # 仓库访问权限如未对外公开，则需要设置访问的用户名密码
+#          username: username
 #          password: password
-#          default-label:dev
-#  profiles:
-#    active: eureka
+          # 设置默认使用的远程仓库版本，可以为git label, branch name or commit id，默认为远程仓库的master分支
+          default-label: dev
 
 ---
 spring:
@@ -27,3 +37,25 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:12011/eureka/
+
+---
+spring:
+  profiles: native # 必须指定active的值为native，才可以使用本地文件配置模式
+  cloud:
+    config:
+      server:
+        native:
+          # 自定义配置文件路径，分为2类
+          # 从本地目录加载配置文件：以file开头，如 file:///${user.home}/config-repo，默认值：file:./, file:./config
+          # 从classpath中加载配置文件：以classpath开头，默认值：classpath:/, classpath:/config
+          # 多个路径以,分隔，后者覆盖前者
+          searchLocations: classpath:/config_repo,classpath:/config_repo/{application}
+
+          # 配置中心多份配置文件组装顺序：
+          # 1. default profile下 按多路径顺序获取
+          # 2. custom profile下 按多路径获取
+          # 3. 按以上顺序，后者覆盖前者
+
+          # 疑问：
+          # server端组装，得到最终配置，返回给client
+          # server端不组装，返回多份配置，client端组装，得到最终配置
