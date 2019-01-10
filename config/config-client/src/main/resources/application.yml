@@ -1,0 +1,29 @@
+server:
+  port: 12022
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: dev
+      profile: ${spring.profiles.active} # 环境配置名称
+      uri: http://localhost:12021/ # 直接设置config server URL
+#  profiles:
+#    active: eureka
+
+---
+spring:
+  profiles: eureka
+  cloud:
+    config:
+      discovery: # 通过注册中心获取config server URL
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12011/eureka/

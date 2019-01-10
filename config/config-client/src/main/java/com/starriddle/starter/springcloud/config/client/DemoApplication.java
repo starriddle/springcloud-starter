@@ -1,14 +1,14 @@
-package com.starriddle.starter.springcloud.demo;
+package com.starriddle.starter.springcloud.config.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * SpringCloud App 启动类
- *
- * @author chen
+ * @author CYL
  * @date 2019-01-10
  */
+@EnableDiscoveryClient
 @SpringBootApplication
 public class DemoApplication {
 
