@@ -1,4 +1,4 @@
-package com.starriddle.starter.springcloud.eureka.server;
+package com.starriddle.starter.springcloud.config.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
