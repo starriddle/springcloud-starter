@@ -4,6 +4,20 @@ server:
 spring:
   application:
     name: admin-server
+  mail:
+    host: smtp.exmail.qq.com
+    username: #username
+    password: #password
+  boot:
+    admin:
+      notify:
+        mail:
+          to: #接受方邮件
+          from: #发送方邮件，与邮件服务配置保持一致
+  security:
+    user:
+      name: "admin"
+      password: "admin"
 
 eureka:
   instance:
@@ -11,6 +25,12 @@ eureka:
     health-check-url-path: /actuator/health
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+    # 将本应用的数据(键值对)发送给eureka服务端，以供其他应用使用
+    metadata-map:
+      # 提供访问本应用的账户信息，以便其他服务访问
+      user:
+        name: ${spring.security.user.name}
+        password: ${spring.security.user.password}
   client:
     registry-fetch-interval-seconds: 10
     service-url:

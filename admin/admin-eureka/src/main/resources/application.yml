@@ -9,7 +9,10 @@ spring:
       client:
         url: http://localhost:12032
         instance:
-          prefer-ip: true # 使用ip，默认为hostname
+          prefer-ip: true
+        # admin server 开启权限控制，client 需要用户名密码进行连接注册
+        username: 'admin'
+        password: 'admin'
 
 eureka:
   instance:
