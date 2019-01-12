@@ -1,0 +1,31 @@
+server:
+  port: 12032
+
+spring:
+  application:
+    name: admin-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    health-check-url-path: /actuator/health
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    registry-fetch-interval-seconds: 10
+    service-url:
+      defaultZone: http://localhost:12031/eureka/
+
+management: # actuator
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+info: # actuator/info
+  app:
+    name: spring-cloud-admin-server
+    version: 2019.01.12-SNAPSHOT
