@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: eureka-server
+  boot:
+    admin:
+      client:
+        url: http://localhost:12032
+        instance:
+          prefer-ip: true # 使用ip，默认为hostname
 
 eureka:
   instance:
