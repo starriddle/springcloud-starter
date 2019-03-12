@@ -11,7 +11,7 @@ spring:
       server:
         git:
           # 指定配置文件所在远程git库的url地址
-          uri: https://github.com/starriddle/repository.git
+          uri: https://github.com/starriddle/config_repo.git
           # 定位git库的子目录，指定搜索路径，如果有多个路径则使用,分隔，后者覆盖前者，默认为根目录
           searchPaths: SpringCloudConfig,SpringCloudConfig/{application}
           # 对于使用git,svn做为后端配置，从远程库获取配置文件，需要存储到本地文件。
