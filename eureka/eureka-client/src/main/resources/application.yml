@@ -1,5 +1,5 @@
 server:
-  port: 12014
+  port: 12001
 
 spring:
   application:
@@ -24,7 +24,7 @@ eureka: # eureka配置
    profiles: client2
 
  server:
-   port: 12015
+   port: 12002
 
  management: # 配置actuator
    endpoints:
@@ -32,7 +32,7 @@ eureka: # eureka配置
        exposure:
          include: "*" # 设置通过http可访问所有actuator信息
    server:
-     port: 12017
+     port: 12000
      address: 127.0.0.1 # 设置仅限本地访问
 
  info: # 可自定义actuator/info下的信息
@@ -45,7 +45,7 @@ eureka: # eureka配置
    profiles: client3
 
  server:
-   port: 12016
+   port: 12003
 
  eureka:
    instance:

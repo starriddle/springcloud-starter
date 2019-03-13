@@ -1,5 +1,5 @@
 server:
-  port: 12032
+  port: 12031
 
 spring:
   application:
@@ -34,7 +34,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 10
     service-url:
-      defaultZone: http://localhost:12031/eureka/
+      defaultZone: http://localhost:12011/eureka/
 
 management: # actuator
   endpoints:
