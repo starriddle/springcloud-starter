@@ -3,58 +3,79 @@ server:
 
 spring:
   application:
-    name: eureka-client # 定义客户端服务名称, 在注册中心注册后，其他服务可通过该名称进行通讯，一般用于客户端
+    # 定义客户端服务名称, 在注册中心注册后，其他服务可通过该名称进行通讯，一般用于客户端
+    name: eureka-client
+#  profiles:
+#    active: client2
 
-eureka: # eureka配置
+# eureka配置
+eureka:
   instance:
-#    lease-renewal-interval-in-seconds: 60 # 租期更新时间间隔（默认30秒）
-#    lease-expiration-duration-in-seconds: 180 # 租期到期时间（默认90秒）
-    prefer-ip-address: true # 设置以Ip地址形式来定义注册中心显示的本服务地址，默认false，以主机名形式
+    # 租期更新时间间隔（默认30秒）
+#    lease-renewal-interval-in-seconds: 60
+    # 租期到期时间（默认90秒）
+#    lease-expiration-duration-in-seconds: 180
+    # 设置以Ip地址形式来定义注册中心显示的本服务地址，默认false，以主机名形式
+    prefer-ip-address: true
 #    virtual-host-name: helloworld
   client:
-#    registry-fetch-interval-seconds: 60 #间隔多久去拉取服务注册信息，默认为30秒
+    # 间隔多久去拉取服务注册信息，默认为30秒
+#    registry-fetch-interval-seconds: 60
     service-url:
-      defaultZone: http://localhost:12011/eureka/ # 单个注册中心配置
-#      defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/ # 注册中心集群配置
+      # 单个注册中心配置
+      defaultZone: http://localhost:12011/eureka/
+      # 注册中心集群配置
+#      defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/
 
 ### 可使用spring.profiles.active来指定环境配置 ###
+---
+# client2 环境配置：自定义actuator监控信息
+spring:
+  profiles: client2
 
---- # client2 环境配置：自定义actuator监控信息
- spring:
-   profiles: client2
+server:
+  port: 12002
 
- server:
-   port: 12002
+# 配置actuator
+management:
+  endpoints:
+    web:
+      exposure:
+       # 设置通过http可访问所有actuator信息
+       include: "*"
+  server:
+    port: 12000
+    # 设置仅限本地访问
+    address: 127.0.0.1
 
- management: # 配置actuator
-   endpoints:
-     web:
-       exposure:
-         include: "*" # 设置通过http可访问所有actuator信息
-   server:
-     port: 12000
-     address: 127.0.0.1 # 设置仅限本地访问
+# 可自定义actuator/info下的信息
+info:
+  app:
+    name: eureka-client-server
+    version: 2019.01.10-SNAPSHOT
 
- info: # 可自定义actuator/info下的信息
-   app:
-     name: eureka-client-server
-     version: 2019.01.10-SNAPSHOT
+---
+# client3 环境配置：自定义client与eureka server的交互时间
+spring:
+  profiles: client3
 
---- # client3 环境配置：自定义client与eureka server的交互时间
- spring:
-   profiles: client3
+server:
+  port: 12003
 
- server:
-   port: 12003
-
- eureka:
-   instance:
-     lease-renewal-interval-in-seconds: 60 # 租期更新时间间隔（默认30秒）
-     lease-expiration-duration-in-seconds: 180 # 租期到期时间（默认90秒）
-     prefer-ip-address: true # 设置以Ip地址形式来定义注册中心显示的本服务地址，默认false，以主机名形式
-   #    virtual-host-name: helloworld
-   client:
-     registry-fetch-interval-seconds: 60 #间隔多久去拉取服务注册信息，默认为30秒
-     service-url:
-       defaultZone: http://localhost:12011/eureka/ # 单个注册中心配置
-#      defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/ # 注册中心集群配置
+eureka:
+  instance:
+    # 租期更新时间间隔（默认30秒）
+    lease-renewal-interval-in-seconds: 60
+    # 租期到期时间（默认90秒）
+    lease-expiration-duration-in-seconds: 180
+    # 设置以Ip地址形式来定义注册中心显示的本服务地址，默认false，以主机名形式
+    prefer-ip-address: true
+#   virtual-host-name: helloworld
+  client:
+    # 间隔多久去拉取服务注册信息，默认为30秒
+    registry-fetch-interval-seconds: 60
+    service-url:
+      # 单个注册中心配置
+      defaultZone: http://localhost:12011/eureka/
+      # 注册中心集群配置
+#     defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/

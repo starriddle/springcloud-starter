@@ -1,5 +1,7 @@
 package com.starriddle.starter.springcloud.eureka.client.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sun.istack.internal.logging.Logger;
 
 
 /**
@@ -18,7 +19,7 @@ import com.sun.istack.internal.logging.Logger;
 @RequestMapping("/hello")
 public class HelloController {
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private DiscoveryClient client;
