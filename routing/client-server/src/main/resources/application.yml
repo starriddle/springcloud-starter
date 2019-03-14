@@ -17,8 +17,9 @@ spring:
 
 server:
   port: 12001
-  servlet:
-    context-path: /serverA
+#  servlet:
+    # 如设置context-path，路由转发时需要在请求路径中带上context-path
+#    context-path: /serverA
 
 
 ---
@@ -29,5 +30,5 @@ spring:
 
 server:
   port: 12002
-  servlet:
-    context-path: /serverB
+#  servlet:
+#    context-path: /serverB

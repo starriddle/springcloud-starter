@@ -5,7 +5,7 @@ spring:
   application:
     name: zuul-server
   profiles:
-    active: internal
+    active: config
 
 eureka:
   instance:
@@ -33,7 +33,7 @@ zuul:
       # 与 url 不可同时存在，如都未设置，则存在eureka情况下默认为service-id
       # service-id值默认为id值，后者值默认为key值(如此处key=a)
       service-id: client-A
-      # a 项目 路径，路由zuul-server(http://domain:port/context-path)/a/** -> a-server/**
+      # a 项目 路径，路由zuul-server(http://domain:port/context-path)/a/** -> a-server/**(包含context-path)
       path: /a/**
     # b 项目路由配置
     b:
@@ -47,3 +47,12 @@ zuul:
 ---
 spring:
   profiles: config
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      fail-fast: true
+      retry:
+        multiplier: 2
+        max-interval: 5000
