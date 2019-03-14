@@ -1,0 +1,23 @@
+server:
+  port: 12011
+
+spring:
+  application:
+    name: eureka-server
+
+# 注册中心 集群配置
+eureka:
+  # 注册中心也是一个“客户端”，默认会将自己作为客户端来注册自己，需要修改默认配置：
+  client:
+    # 客户端向注册中心注册本应用，默认为true
+    # 注册中心本身不需要向自己注册
+    # 在集群中可向其他注册中心注册自己
+    register-with-eureka: true
+    # 客户端向注册中心检索服务，默认为true
+    # 注册中心本身职责就是维护服务实例，不需要去检索
+    # 但在集群中可向其他注册中心检索
+    fetch-registry: true
+    # 指定服务注册中心URL，单机模式下为本身URL
+    # 在集群中应为其他注册中心的URL，多个URL以逗号隔开
+    serviceUrl:
+      defaultZone: http://localhost:12012/eureka/

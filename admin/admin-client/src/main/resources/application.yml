@@ -15,7 +15,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 10
     service-url:
-      defaultZone: http://localhost:12011/eureka/
+      defaultZone: http://localhost:12010/eureka/
 
 management: # actuator
   endpoints:

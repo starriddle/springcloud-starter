@@ -34,5 +34,5 @@ management: # actuator
 
 info: # actuator/info
   app:
-    name: spring-cloud-admin-eureka
-    version: 2019.01.12-SNAPSHOT
+    name: spring-cloud-admin-eureka-server
+    version: 2019.03.14-SNAPSHOT

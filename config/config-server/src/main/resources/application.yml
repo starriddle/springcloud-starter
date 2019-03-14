@@ -1,5 +1,5 @@
 server:
-  port: 12021
+  port: 12020
 
 spring:
   application:
@@ -36,7 +36,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:12011/eureka/
+      defaultZone: http://localhost:12010/eureka/
 
 ---
 spring:
@@ -48,14 +48,14 @@ spring:
           # 自定义配置文件路径，分为2类
           # 从本地目录加载配置文件：以file开头，如 file:///${user.home}/config-repo，默认值：file:./, file:./config
           # 从classpath中加载配置文件：以classpath开头，默认值：classpath:/, classpath:/config
-          # 多个路径以,分隔，后者覆盖前者
+          # 多个路径以,分隔，后者优先级高
           searchLocations: classpath:/config_repo,classpath:/config_repo/{application}
 
-          # 配置中心多份配置文件组装顺序：
-          # 1. default profile下 按多路径顺序获取
-          # 2. custom profile下 按多路径获取
-          # 3. 按以上顺序，后者覆盖前者
+          # 配置中心多份配置文件优先顺序：
+          # 1. custom profile下 按多路径获取，多路径靠后者优先级高
+          # 2. default profile下 按多路径顺序获取，多路径靠后者优先级高
 
           # 疑问：
           # server端组装，得到最终配置，返回给client
           # server端不组装，返回多份配置，client端组装，得到最终配置
+          # 通过启动日志可知，client端得到的propertiesSources是个数组，因此client得到多分配置后，按需根据优先级得到对应的值

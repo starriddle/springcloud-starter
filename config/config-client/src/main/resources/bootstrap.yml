@@ -14,7 +14,7 @@ spring:
       # 如server使用本地配置模式，则该值无意义
 #      label: master
       # 直接设置config server URL
-      uri: http://localhost:12021
+      uri: http://localhost:12020
       # name 默认为 spring.application.name
       # 对应config server rest接口/{name}/{profile}/{label}中的name
       # config server 配置文件可通过{application}变量获取该值
@@ -53,4 +53,4 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:12011/eureka/
+      defaultZone: http://localhost:12010/eureka/

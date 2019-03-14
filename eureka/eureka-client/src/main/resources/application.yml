@@ -6,7 +6,7 @@ spring:
     # 定义客户端服务名称, 在注册中心注册后，其他服务可通过该名称进行通讯，一般用于客户端
     name: eureka-client
 #  profiles:
-#    active: client2
+#    active: client3
 
 # eureka配置
 eureka:
@@ -23,9 +23,9 @@ eureka:
 #    registry-fetch-interval-seconds: 60
     service-url:
       # 单个注册中心配置
-      defaultZone: http://localhost:12011/eureka/
+      defaultZone: http://localhost:12010/eureka/
       # 注册中心集群配置
-#      defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/
+#      defaultZone: http://localhost:12011/eureka/,http://localhost:12012/eureka/
 
 ### 可使用spring.profiles.active来指定环境配置 ###
 ---
@@ -55,7 +55,7 @@ info:
     version: 2019.01.10-SNAPSHOT
 
 ---
-# client3 环境配置：自定义client与eureka server的交互时间
+# client3 环境配置：自定义client与eureka server的交互时间，使用注册中心集群
 spring:
   profiles: client3
 
@@ -76,6 +76,6 @@ eureka:
     registry-fetch-interval-seconds: 60
     service-url:
       # 单个注册中心配置
-      defaultZone: http://localhost:12011/eureka/
+#      defaultZone: http://localhost:12010/eureka/
       # 注册中心集群配置
-#     defaultZone: http://localhost:12012/eureka/,http://localhost:12013/eureka/
+      defaultZone: http://localhost:12011/eureka/,http://localhost:12012/eureka/

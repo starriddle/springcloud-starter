@@ -1,5 +1,5 @@
 server:
-  port: 12011
+  port: 12010
 
 spring:
   application:
@@ -8,17 +8,22 @@ spring:
 
 # 注册中心 单机配置
 eureka:
-#  instance:
-#    hostname: localhost
+  instance:
+    hostname: localhost
   # 注册中心也是一个“客户端”，默认会将自己作为客户端来注册自己，需要修改默认配置：
   client:
-    # 1. 默认为true，客户端向注册中心注册本应用，注册中心本身不需要向自己注册，但在集群中可向其他注册中心注册自己
+    # 客户端向注册中心注册本应用，默认为true
+    # 注册中心本身不需要向自己注册
+    # 在集群中可向其他注册中心注册自己
     register-with-eureka: false
-    # 2. 默认为true，客户端向注册中心检索服务，注册中心本身职责就是维护服务实例，不需要去检索，但在集群中可向其他注册中心检索
+    # 客户端向注册中心检索服务，默认为true
+    # 注册中心本身职责就是维护服务实例，不需要去检索
+    # 但在集群中可向其他注册中心检索
     fetch-registry: false
-    # 指定服务注册中心URL，为本身URL，但在集群中应为其他注册中心的URL，多个URL以逗号隔开
+    # 指定服务注册中心URL，单机模式下为本身URL
+    # 在集群中应为其他注册中心的URL，多个URL以逗号隔开
     serviceUrl:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     # 注册中心保护机制，默认开启；
     # 当其注册表里服务因为网络或其他原因出现故障而关停时，Eureka不会剔除服务注册，而是等待其修复，
