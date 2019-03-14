@@ -2,7 +2,6 @@ package com.starriddle.starter.springcloud.routing.gateway.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Spring Cloud Gateway 网关
@@ -10,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author CYL
  * @date 2019-03-14
  */
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication
 public class GatewayApplication {
 

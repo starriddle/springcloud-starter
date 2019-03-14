@@ -4,17 +4,37 @@ server:
 spring:
   application:
     name: gateway-server
+  profiles:
+    active: internal
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://localhost:12010/eureka/
+# 日志打印的级别
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: debug
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:12010/eureka/
 
 ---
 spring:
   profiles: internal
+  cloud:
+    gateway:
+      routes:
+        -
+          id: server-a
+          uri: http://localhost:12001
+          predicates:
+            - Path=/serverA/{segment}
+          filters:
+            - SetPath=/{segment}
 
 ---
 spring:

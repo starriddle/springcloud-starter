@@ -23,7 +23,7 @@ public class IndexController {
 
     @RequestMapping("/hello")
     public String index(@RequestParam(name = "name", defaultValue = "World", required = false) String name){
-
+        log.info("server:{}, port:{}, param-name:{}", serverName, serverPort, name);
         String msg = "Hello " + name + "! —— server: " + serverName + ", port: " + serverPort;
         return msg;
     }
