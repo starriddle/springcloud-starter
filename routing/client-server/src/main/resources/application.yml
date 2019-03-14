@@ -17,6 +17,8 @@ spring:
 
 server:
   port: 12001
+  servlet:
+    context-path: /serverA
 
 
 ---
@@ -27,3 +29,5 @@ spring:
 
 server:
   port: 12002
+  servlet:
+    context-path: /serverB

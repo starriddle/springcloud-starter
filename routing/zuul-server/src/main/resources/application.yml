@@ -28,14 +28,20 @@ zuul:
     # a 项目路由配置
     a:
       # a 项目 url
-      url: http://localhost:12001/
-      # a 项目 路径，路由zuul-server(http://domain:port/context-path)/a/** -> url/**
+#      url: http://localhost:12001/
+      # a 项目 在注册中心的 server-id，据此从注册中心获取的url同上
+      # 与 url 不可同时存在，如都未设置，则存在eureka情况下默认为service-id
+      # service-id值默认为id值，后者值默认为key值(如此处key=a)
+      service-id: client-A
+      # a 项目 路径，路由zuul-server(http://domain:port/context-path)/a/** -> a-server/**
       path: /a/**
     # b 项目路由配置
     b:
       # b 项目 url
-      url: http://localhost:12002/
-      # b 项目 路径，路由zuul-server(http://domain:port/context-path)/b/** -> url/**
+#      url: http://localhost:12002/
+      # b 项目 在注册中心的 server-id
+      service-id: client-B
+      # b 项目 路径，路由zuul-server(http://domain:port/context-path)/b/** -> b-server/**
       path: /b/**
 
 ---
