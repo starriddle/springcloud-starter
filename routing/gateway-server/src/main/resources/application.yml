@@ -1,0 +1,21 @@
+server:
+  port: 12041
+
+spring:
+  application:
+    name: gateway-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12010/eureka/
+
+---
+spring:
+  profiles: internal
+
+---
+spring:
+  profiles: config

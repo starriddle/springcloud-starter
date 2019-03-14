@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: clientA
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12010/eureka/
+
+---
+spring:
+  profiles: clientA
+  application:
+    name: client-A
+
+server:
+  port: 12001
+
+
+---
+spring:
+  profiles: clientB
+  application:
+    name: client-B
+
+server:
+  port: 12002

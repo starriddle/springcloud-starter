@@ -16,6 +16,7 @@
         <module>config</module>
         <module>eureka</module>
         <module>admin</module>
+        <module>routing</module>
     </modules>
 
 </project>

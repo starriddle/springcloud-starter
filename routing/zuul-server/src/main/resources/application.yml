@@ -1,0 +1,43 @@
+server:
+  port: 12040
+
+spring:
+  application:
+    name: zuul-server
+  profiles:
+    active: internal
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12010/eureka/
+
+---
+spring:
+  profiles: internal
+
+server:
+  servlet:
+    # 本服务访问路径
+    context-path: /zuul
+
+zuul:
+  routes:
+    # a 项目路由配置
+    a:
+      # a 项目 url
+      url: http://localhost:12001/
+      # a 项目 路径，路由zuul-server(http://domain:port/context-path)/a/** -> url/**
+      path: /a/**
+    # b 项目路由配置
+    b:
+      # b 项目 url
+      url: http://localhost:12002/
+      # b 项目 路径，路由zuul-server(http://domain:port/context-path)/b/** -> url/**
+      path: /b/**
+
+---
+spring:
+  profiles: config
