@@ -4,19 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.starriddle.starter.springcloud.routing</groupId>
-        <artifactId>routing</artifactId>
+        <groupId>com.starriddle.starter.springcloud.admin</groupId>
+        <artifactId>admin</artifactId>
         <version>0.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>routing-eureka</artifactId>
+    <artifactId>admin-eureka</artifactId>
     <packaging>jar</packaging>
 
-    <name>SpringCloud::ROUTING::Eureka</name>
+    <name>SpringCloud::Admin::Eureka</name>
     <description>Demo Project of Eureka Server</description>
 
     <dependencies>
-        <!-- springCloud eureka 服务端 依赖，包含 actuator+web 组件 -->
+        <!-- springCloud eureka 服务端 依赖，包含 actuator + web 组件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -26,6 +26,13 @@
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.2</version>
+        </dependency>
+
+        <!-- springBoot Admin 客户端 依赖 -->
+        <!-- 如果需要将eureka服务器也做为 Admin Server 的客户端，需要以下依赖-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
     </dependencies>
 
