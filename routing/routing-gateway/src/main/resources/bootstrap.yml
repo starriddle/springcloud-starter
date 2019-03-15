@@ -5,7 +5,7 @@ spring:
   application:
     name: gateway-server
   profiles:
-    active: internal
+    active: config
 
 eureka:
   instance:
@@ -31,13 +31,15 @@ spring:
       routes:
         - # Path -> SetPath: 该规则只能匹配一级路径，如/A/index，无法匹配/A/index/hello
           id: set-a
-          uri: http://localhost:12001
+          # loadBlancer 负载均衡，使用注册中心的serviceId（不限大小写形式）
+          uri: lb://CLIENT-A
           predicates:
             - Path=/a/{segment}
           filters:
             - SetPath=/{segment}
         - # Path -> RewritePath: 全路径正则替换
           id: rewrite-b
+          # 使用url
           uri: http://localhost:12002
           predicates:
             - Path=/B/**
@@ -51,3 +53,16 @@ logging:
       springframework:
         cloud:
           gateway: debug
+
+---
+spring:
+  profiles: config
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      fail-fast: true
+      retry:
+        multiplier: 2
+        max-interval: 5000

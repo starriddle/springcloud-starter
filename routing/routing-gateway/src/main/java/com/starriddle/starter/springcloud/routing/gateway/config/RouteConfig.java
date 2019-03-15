@@ -3,15 +3,14 @@ package com.starriddle.starter.springcloud.routing.gateway.config;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
- * 通过Bean方式 注入路由配置
+ * 通过Bean方式 注入路由配置，Bean方式/配置文件配置方式 可同时使用
  *
  * @author CYL
  * @date 2019-03-15
  */
-@Configuration
+//@Configuration
 public class RouteConfig {
 
     @Bean
