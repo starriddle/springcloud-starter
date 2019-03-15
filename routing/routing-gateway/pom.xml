@@ -16,10 +16,16 @@
     <description>Demo project of Gateway Server</description>
 
     <dependencies>
-        <!-- springCloud gateway 依赖 -->
+        <!-- springCloud gateway 依赖，包含 webflux 模块 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!-- 引入 actuator 模块，用于监控系统采集信息 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!-- springCloud eureka 客户端 依赖 -->
@@ -42,17 +48,6 @@
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
         </dependency>-->
-
-        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- 引入 actuator 模块，用于监控系统采集信息 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

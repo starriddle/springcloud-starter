@@ -15,12 +15,12 @@ logging:
         cloud:
           gateway: debug
 
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:12010/eureka/
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12010/eureka/
 
 ---
 spring:
@@ -32,7 +32,7 @@ spring:
           id: server-a
           uri: http://localhost:12001
           predicates:
-            - Path=/serverA/{segment}
+            - Path=/a/{segment}
           filters:
             - SetPath=/{segment}
 

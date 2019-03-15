@@ -12,7 +12,7 @@
     <artifactId>routing-eureka</artifactId>
     <packaging>jar</packaging>
 
-    <name>SpringCloud::ROUTING::Eureka</name>
+    <name>SpringCloud::Routing::Eureka</name>
     <description>Demo Project of Eureka Server</description>
 
     <dependencies>
