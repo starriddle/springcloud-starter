@@ -32,15 +32,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <!-- springBoot webflux 响应式web框架 依赖
-             spring boot admin 2.1 使用的web框架
-             客户端也需要导入该依赖
-         -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

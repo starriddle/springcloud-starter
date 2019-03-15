@@ -28,20 +28,10 @@
             <version>2.3.2</version>
         </dependency>
 
-        <!-- springBoot Admin 客户端 依赖 -->
-        <!-- 如果需要将eureka服务器也做为 Admin Server 的客户端，需要以下依赖-->
+        <!-- springBoot Admin 客户端 依赖，将eureka-server也做为 admin-client -->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
-        </dependency>
-
-        <!-- springBoot webflux 响应式web框架 依赖
-             spring boot admin 2.1 使用的web框架
-             客户端也需要导入该依赖
-         -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
     </dependencies>
 
