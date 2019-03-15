@@ -7,14 +7,6 @@ spring:
   profiles:
     active: internal
 
-# 日志打印的级别
-logging:
-  level:
-    org:
-      springframework:
-        cloud:
-          gateway: debug
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -27,15 +19,35 @@ spring:
   profiles: internal
   cloud:
     gateway:
+      discovery:
+        locator:
+          # 是否与服务注册发现组件进行结合，自动根据 serviceId 创建路由，默认为不开启 false
+          # 设为true，通过 serviceId转发到具体的服务实例
+          # 路由访问方式：http://Gateway_HOST:Gateway_PORT/serviceId/**
+          enabled: true
+          # 自动创建路由时，serviceId 是否使用小写形式，默认 false 使用大写形式
+          lower-case-service-id: true
+      # 自定义路由配置
       routes:
-        -
-          id: server-a
+        - # Path -> SetPath: 该规则只能匹配一级路径，如/A/index，无法匹配/A/index/hello
+          id: set-a
           uri: http://localhost:12001
           predicates:
             - Path=/a/{segment}
           filters:
             - SetPath=/{segment}
+        - # Path -> RewritePath: 全路径正则替换
+          id: rewrite-b
+          uri: http://localhost:12002
+          predicates:
+            - Path=/B/**
+          filters:
+            - RewritePath=/B/,/
 
----
-spring:
-  profiles: config
+# 日志打印的级别
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: debug
