@@ -1,0 +1,37 @@
+server:
+  port: 12020
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:12010/eureka/
+
+---
+spring:
+  profiles: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/starriddle/config_repo.git
+          searchPaths: springcloud-starter,springcloud-starter/{application}
+          basedir: /tmp/config_repo
+          force-pull: true
+          default-label: dev
+
+---
+spring:
+  profiles: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config_repo,classpath:/config_repo/{application}
