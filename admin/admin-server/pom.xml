@@ -16,7 +16,7 @@
     <description>Demo Project of Admin Server</description>
 
     <dependencies>
-        <!-- springBoot Admin 服务端 依赖，包含 actuator 模块 -->
+        <!-- springBoot Admin 服务端 依赖，包含 actuator + webflux 模块 -->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
@@ -26,12 +26,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!-- springBoot Security 依赖 -->
