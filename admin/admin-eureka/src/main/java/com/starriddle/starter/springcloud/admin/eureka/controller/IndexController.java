@@ -1,4 +1,4 @@
-package com.starriddle.starter.springcloud.admin.client.controller;
+package com.starriddle.starter.springcloud.admin.eureka.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

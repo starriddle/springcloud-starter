@@ -8,27 +8,20 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
-    # 自定义健康检测相对路径，actuator监控系统默认健康检测路径：/actuator/health
-    health-check-url-path: /actuator/health
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
   client:
-    registry-fetch-interval-seconds: 10
     service-url:
       defaultZone: http://localhost:12010/eureka/
 
-management: # actuator
+management:
   endpoints:
     web:
       exposure:
-        # 开放所有监控端口，查看所有服务信息，默认仅开放 info + health
         include: "*"
   endpoint:
     health:
-      # 是否显示 health 详情，默认 never，仅显示健康状态
       show-details: always
 
-info: # actuator/info
+info:
   app:
     name: spring-cloud-admin-client
-    version: 2019.01.12-SNAPSHOT
+    version: 2019.03.15-SNAPSHOT

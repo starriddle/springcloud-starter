@@ -1,0 +1,38 @@
+server:
+  port: 12010
+
+spring:
+  application:
+    name: eureka-server
+  boot:
+    admin:
+      client:
+        url: http://localhost:12030
+        instance:
+          prefer-ip: true
+        # admin server 开启权限控制，client 需要用户名密码进行连接注册
+        username: 'admin'
+        password: 'admin'
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: spring-cloud-admin-eureka
+    version: 2019.03.15-SNAPSHOT

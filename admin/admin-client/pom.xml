@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.starriddle.starter.springcloud.admin</groupId>
         <artifactId>admin</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>admin-client</artifactId>
@@ -15,44 +15,31 @@
     <name>SpringCloud::Admin::Client</name>
     <description>Demo Project of Admin Client</description>
 
-    <properties>
-        <java.version>11</java.version>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!-- springCloud eureka 客户端 依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- springBoot webflux 响应式web框架 依赖 (spring boot admin 使用的web框架) -->
+        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- springBoot actuator 服务监控 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- springBoot webflux 响应式web框架 依赖
+             spring boot admin 2.1 使用的web框架
+             客户端也需要导入该依赖
+         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
     </dependencies>
 
