@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author CYL
  * @date 2019-01-10
  */
-//@EnableDiscoveryClient
 @SpringBootApplication
 public class ConfigClientApplication {
 

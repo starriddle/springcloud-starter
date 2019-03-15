@@ -4,19 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.starriddle.starter.springcloud.euraka</groupId>
-        <artifactId>eureka</artifactId>
+        <groupId>com.starriddle.starter.springcloud.config</groupId>
+        <artifactId>config</artifactId>
         <version>0.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>eureka-server</artifactId>
+    <artifactId>config-eureka</artifactId>
     <packaging>jar</packaging>
 
-    <name>SpringCloud::Eureka::Server</name>
+    <name>SpringCloud::Config::Eureka</name>
     <description>Demo Project of Eureka Server</description>
 
     <dependencies>
-        <!-- springCloud eureka 服务端 依赖 -->
+        <!-- springCloud eureka 服务端 依赖，已包含 actuator + web 模块 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -27,13 +27,8 @@
             聚合模块java.se.ee JDK9 开始被废弃，JDK11 中已被移除，
             java.xml.bind 需要手动导入依赖包，
             否则eureka-server启动失败，找不到类 javax.xml.bind.JAXBContext
-
-            Java 6 = JAX-B Version 2.0
-            Java 7 = JAX-B Version 2.2.3
-            Java 8 = JAX-B Version 2.2.8
-            Java 11= JAX-B Version 2.2.11
          -->
-        <!--<dependency>
+        <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.2.11</version>
@@ -52,12 +47,6 @@
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
-        </dependency>-->
-
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.2</version>
         </dependency>
         <!-- JAXB end -->
 

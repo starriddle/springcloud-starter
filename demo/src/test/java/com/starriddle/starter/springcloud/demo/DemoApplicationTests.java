@@ -1,5 +1,6 @@
 package com.starriddle.starter.springcloud.demo;
 
+import com.starriddle.starter.springcloud.demo.controller.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +13,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.starriddle.starter.springcloud.demo.controller.HelloController;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
 @WebAppConfiguration
@@ -23,7 +22,7 @@ public class DemoApplicationTests {
 
     @Before
     public void init(){
-        mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
     }
 
     @Test

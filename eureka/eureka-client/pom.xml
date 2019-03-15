@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.starriddle.starter.springcloud.euraka</groupId>
         <artifactId>eureka</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>eureka-client</artifactId>
@@ -15,34 +15,19 @@
     <name>SpringCloud::Eureka::Client</name>
     <description>Demo project of Eureka Client</description>
 
-    <properties>
-        <java.version>11</java.version>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!-- springCloud eureka 客户端 依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- 引入 actuator 模块，用于监控系统采集信息 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

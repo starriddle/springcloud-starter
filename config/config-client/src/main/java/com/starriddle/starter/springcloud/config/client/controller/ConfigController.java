@@ -2,7 +2,6 @@ package com.starriddle.starter.springcloud.config.client.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -34,11 +33,6 @@ public class ConfigController {
 
     @Value("${message.global}")
     private String globalMsg;
-
-    @RequestMapping("/index")
-    public String index(@RequestParam(name = "name", defaultValue = "World", required = false) String name){
-        return "Hello " + name + "! —— server: " + serverName + ", port: " + serverPort;
-    }
 
     @RequestMapping("/list")
     public String configList(){

@@ -2,7 +2,6 @@ package com.starriddle.starter.springcloud.eureka.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * SpringCloud Eureka Client 启动类<p/>
@@ -15,10 +14,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * EnableDiscoveryClient
  * 推荐，在所有 SpringCloud 的 Discovery Client中都适用: eureka, consul, zookeeper
  *
+ * PS: springCloud中，所有client类的注解都可以不使用，只要添加了相应依赖和配置，默认启用
+ *
  * @author CYL
  * @date 2019-01-10
  */
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaClientApplication {
 
