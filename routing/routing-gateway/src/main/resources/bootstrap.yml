@@ -5,7 +5,7 @@ spring:
   application:
     name: gateway-server
   profiles:
-    active: config
+    active: internal
 
 eureka:
   instance:
@@ -35,8 +35,14 @@ spring:
           uri: lb://CLIENT-A
           predicates:
             - Path=/a/{segment}
+          # 如不添加任何filters，则不对请求路径进行处理，直接转发
           filters:
+            # 移除前缀
             - SetPath=/{segment}
+            # 替换前缀
+            - SetPath=/index/{segment}
+            # 指向统一路径
+            - SetPath=/index
         - # Path -> RewritePath: 全路径正则替换
           id: rewrite-b
           # 使用url

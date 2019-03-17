@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/index")
 public class IndexController {
 
     @Value("${server.port}")
@@ -21,16 +20,31 @@ public class IndexController {
     @Value("${spring.application.name}")
     private String serverName;
 
-    @RequestMapping()
+    @RequestMapping("/index")
     public String index(){
-        log.info("server:{}, port:{}", serverName, serverPort);
-        return "Hello World!";
+        log.info("index server:{}, port:{}", serverName, serverPort);
+        String msg = "index::Hello World! —— server: " + serverName + ", port: " + serverPort;
+        return msg;
     }
 
     @RequestMapping("/hello")
-    public String hello(@RequestParam(name = "name", defaultValue = "World", required = false) String name){
-        log.info("server:{}, port:{}, param-name:{}", serverName, serverPort, name);
-        String msg = "Hello " + name + "! —— server: " + serverName + ", port: " + serverPort;
+    public String hello(){
+        log.info("hello server:{}, port:{}", serverName, serverPort);
+        String msg = "hello::Hello World! —— server: " + serverName + ", port: " + serverPort;
+        return msg;
+    }
+
+    @RequestMapping("/index/hello")
+    public String hello2(@RequestParam(name = "name", defaultValue = "World", required = false) String name){
+        log.info("hello2 server:{}, port:{}, param-name:{}", serverName, serverPort, name);
+        String msg = "index/hello::Hello " + name + "! —— server: " + serverName + ", port: " + serverPort;
+        return msg;
+    }
+
+    @RequestMapping("/a/hello")
+    public String hello3(@RequestParam(name = "name", defaultValue = "World", required = false) String name){
+        log.info("hello3 server:{}, port:{}, param-name:{}", serverName, serverPort, name);
+        String msg = "a/hello::Hello " + name + "! —— server: " + serverName + ", port: " + serverPort;
         return msg;
     }
 
