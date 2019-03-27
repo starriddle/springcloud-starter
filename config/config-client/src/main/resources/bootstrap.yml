@@ -54,3 +54,14 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:12010/eureka/
+
+# 配置actuator，以使用/actuator/refresh 端口刷新配置
+management:
+  endpoints:
+    web:
+      exposure:
+        # 设置通过http可访问的actuator信息，设为 "*" 将开放所有端口信息
+        # springcloud2.0后默认只有info+health, 一旦自定义将覆盖默认值
+        include:
+        - "health"
+        - "refresh"
