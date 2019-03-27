@@ -34,6 +34,9 @@ public class ConfigController {
     @Value("${message.global}")
     private String globalMsg;
 
+    @Value("${message.fresh}")
+    private String freshMsg;
+
     @RequestMapping("/list")
     public String configList(){
         return "configs:" +
@@ -42,6 +45,12 @@ public class ConfigController {
                 "\n\tprofile message: " + profileMsg +
                 "\n\tboth message: " + bothMsg +
                 "\n\tcustom message: " + customMsg;
+    }
+
+    @RequestMapping("/msg")
+    public String message(){
+        String msg = "current msg: (" + freshMsg + ") —— server: " + serverName + ", port: " + serverPort;
+        return msg;
     }
 
 }
