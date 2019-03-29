@@ -26,6 +26,22 @@ spring:
 #          password: password
           # 设置默认使用的远程仓库版本，可以为git label, branch name or commit id，默认为远程仓库的master分支
           default-label: dev
+  # RabbitMQ 配置
+  rabbitmq:
+    host: t4.rabbitmq.dcfservice.com
+    port: 5672
+    username: rabbit
+    password: rabbit
+    cache:
+      channel:
+        checkout-timeout: 1s
+
+# 暴露 /actuator/bus-refresh 接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 ---
 spring:

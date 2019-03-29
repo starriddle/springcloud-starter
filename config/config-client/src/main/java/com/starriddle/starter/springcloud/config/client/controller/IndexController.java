@@ -2,21 +2,23 @@ package com.starriddle.starter.springcloud.config.client.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 服务收到 actuator 模块支持的 POST:/actuator/refresh 请求时，会从配置中心拉取
+ * 收到 actuator 模块支持的 POST:/actuator/refresh 请求时，会从配置中心拉取
  * 最新配置信息，@RefreshScope 注解的 Bean 其中自动注入的配置会更新为最新值，
  * 而不需要服务重新启动
+ *
+ * 使用spring cloud bus后，通过消息的发布和消费来更新配置，而不是refresh端口，
+ * 此时与端口搭配的 @RefreshScope 注解也不再需要，所有配置都会被更新
  *
  * @author CYL
  * @date 2019-03-15
  */
 @Slf4j
-@RefreshScope
+//@RefreshScope
 @RestController
 @RequestMapping("/index")
 public class IndexController {
@@ -45,7 +47,7 @@ public class IndexController {
 
     @RequestMapping("/msg")
     public String message(){
-        log.info("server:{}, port:{}, param-name:{}", serverName, serverPort);
+        log.info("server:{}, port:{}", serverName, serverPort);
         String msg = "current msg: (" + freshMsg + ") —— server: " + serverName + ", port: " + serverPort;
         return msg;
     }

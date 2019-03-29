@@ -42,10 +42,16 @@
             <artifactId>spring-retry</artifactId>
         </dependency>
 
-        <!-- springCloud eureka 客户端 依赖 -->
+        <!-- springCloud eureka 客户端 依赖，包含 aop 模块 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- springCloud Bus 消息总线 依赖，包含 spring-retry -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
     </dependencies>
 
