@@ -28,7 +28,14 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!-- 全栈 Web 开发模块，包含嵌入式 Tomcat + SpringMVC，security 模块需要 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- springBoot Security 依赖 -->
+        <!-- security 有使用 javax.servlet.Filter，依赖于 tomcat-embed-core （web 模块内置的tomcat） -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
